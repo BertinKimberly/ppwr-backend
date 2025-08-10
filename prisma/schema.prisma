@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User Model
+model User {
+  id        String   @id @default(uuid())
+  fullName  String
+  password  String
+  email     String   @unique
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Packaging Item Model
+model PackagingItem {
+  id           String          @id @default(uuid())
+  name         String
+  internalCode String          @unique
+  materials    String[]
+  status       PackagingStatus @default(DRAFT)
+  weight       String
+  ppwrLevel    String
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  components PackagingComponent[]
+  documents  PackagingDocument[]
+}
+
+// Packaging Component Model
+model PackagingComponent {
+  id                   String   @id @default(uuid())
+  name                 String
+  format               String
+  weight               String
+  volume               String
+  ppwrCategory         String
+  ppwrLevel            String
+  quantity             Int
+  supplier             String
+  manufacturingProcess String
+  color                String
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  packagingItem   PackagingItem @relation(fields: [packagingItemId], references: [id], onDelete: Cascade)
+  packagingItemId String
+}
+
+// Packaging Document Model
+model PackagingDocument {
+  id         String       @id @default(uuid())
+  name       String
+  type       DocumentType
+  fileUrl    String
+  fileSize   Int
+  uploadDate DateTime     @default(now())
+
+  packagingItem   PackagingItem @relation(fields: [packagingItemId], references: [id], onDelete: Cascade)
+  packagingItemId String
+}
+
+// Enums for Packaging
+enum PackagingStatus {
+  DRAFT
+  ACTIVE
+  INACTIVE
+  DEACTIVATED
+}
+
+enum DocumentType {
+  CONFORMITY_DECLARATION
+  TECHNICAL_DOCUMENTATION
+}
+
+enum Role {
+  USER
+  ADMIN
+}
