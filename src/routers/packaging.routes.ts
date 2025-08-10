@@ -8,8 +8,8 @@ import {
    deletePackagingItem,
    uploadPackagingDocument,
    deletePackagingDocument,
-} from "../controllers/packaging.controller";
-import { authMiddleware } from "../middlewares";
+} from "../controllers/packaging.controller.js";
+import { authMiddleware } from "../middlewares/index.js";
 
 // Configure multer for file upload
 const upload = multer({

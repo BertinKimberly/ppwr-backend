@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { db } from "../db/prisma";
-import { AppError } from "./errors.middlewares";
+import { db } from "../db/prisma.js";
+import { AppError } from "./errors.middlewares.js";
 import { User } from "@prisma/client";
 
 // Extend the Express Request interface to include user property

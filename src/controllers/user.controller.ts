@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
-import { AppError, handleCatchError } from "../middlewares";
+import { AppError, handleCatchError } from "../middlewares/index.js";
 import {
    hashPassword,
    validateLoginDto,
    ValidateSignUpDto,
    validateUpdateDto,
    verifyPassword,
-} from "../utils";
-import { generateToken } from "../utils/generate.token";
-import { db } from "../db/prisma";
+} from "../utils/index.js";
+import { generateToken } from "../utils/generate.token.js";
+import { db } from "../db/prisma.js";
 
 // Enhanced User Response Type
 interface UserResponse {

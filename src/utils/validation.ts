@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { StatusEnum } from "../constants";
+import { StatusEnum } from "../constants.js";
 
 const validStatuses = Object.values(StatusEnum);
 

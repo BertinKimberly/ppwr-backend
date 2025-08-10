@@ -1,4 +1,4 @@
-export { CheckAuth as authMiddleware } from "./auth.middleware";
-export { CheckAdmin as adminMiddleware } from "./admin.middleware";
-export * from "./errors.middlewares";
-export * from "./generalResponse";
+export { CheckAuth as authMiddleware } from "./auth.middleware.js";
+export { CheckAdmin as adminMiddleware } from "./admin.middleware.js";
+export * from "./errors.middlewares.js";
+export * from "./generalResponse.js";

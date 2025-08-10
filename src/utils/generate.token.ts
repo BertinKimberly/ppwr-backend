@@ -1,7 +1,7 @@
 import "dotenv/config";
 import jwt from "jsonwebtoken";
 
-import { AppError } from "../middlewares/errors.middlewares";
+import { AppError } from "../middlewares/errors.middlewares.js";
 
 export const generateToken = async (
    fullName: string,

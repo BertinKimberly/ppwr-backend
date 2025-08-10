@@ -1,7 +1,7 @@
 import { Request, ErrorRequestHandler, Response, NextFunction } from "express";
 
-import { prod } from "../constants";
-import { GeneralResponse } from "./generalResponse";
+import { prod } from "../constants.js";
+import { GeneralResponse } from "./generalResponse.js";
 
 export class AppError extends Error {
   code: number;

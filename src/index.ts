@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import router from "./routers";
+import router from "./routers/index.js";
 import cookieParser from "cookie-parser";
 import path from "path";
 

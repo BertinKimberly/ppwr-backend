@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { AppError, handleCatchError } from "../middlewares";
-import { db } from "../db/prisma";
+import { AppError, handleCatchError } from "../middlewares/index.js";
+import { db } from "../db/prisma.js";
 import { z } from "zod";
-import { uploadFile, deleteFile, getFileUrl } from "../utils/file-upload";
+import { uploadFile, deleteFile, getFileUrl } from "../utils/file-upload.js";
 
 // Validation Schemas
 const PackagingComponentSchema = z.object({
